@@ -1,0 +1,1 @@
+web: gunicorn Unitel.wsgi --log-file -

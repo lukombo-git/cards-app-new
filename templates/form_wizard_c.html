@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Formulário de Solicitação de Créditos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+
+    <script type="text/javascript" src="/static/js1/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/static/bootstrap1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="page-header">
+    <h2>Formulário de Solicitação de Crédito</h2>
+</div>
+
+<!-- Registration Form - START -->
+ <div class="container" id="container1">
+        <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                  {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert">
+                    <strong>{{message}}</strong>
+                  </div>
+                  </br>
+                  {% endfor %}
+                  {% endif %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Preenchimento de Dados</h3>
+                    </div>
+                    <div class="panel-body">
+                      <form action="" method="POST" enctype="multipart/form-data" id="form" role="form">
+                          {% csrf_token %}
+                            <div class="form-group">
+                                Nome Completo:<input type="text" name="nome_completo" id="first_name" class="form-control input-sm" placeholder="Nome Completo">
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-6 col-sm-6 col-md-6">
+                                  <div class="form-group">
+                                    Sexo:<select class="form-control" name="sexo">
+                                      <option value="Masculino">Masculino</option>
+                                        <option value="Feminino">Feminino</option>
+                                    </select>
+                                </div>
+                              </div>
+                              <div class="col-xs-6 col-sm-6 col-md-6">
+                                  <div class="form-group">
+                                      Idade:<input type="number" name="idade" id="password_confirmation" class="form-control input-sm" placeholder="Idade">
+                                  </div>
+                              </div>
+                          </div>
+                            <div class="form-group">
+                                Província:<input type="text" name="provincia" id="provincia" class="form-control input-sm" placeholder="Província">
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-6 col-sm-6 col-md-6">
+                                  <div class="form-group">
+                                    Tipo de Crédito: <select class="form-control" name="tipo_credito">
+                                      <option value="Crédito Habitação">Crédito Habitação</option>
+                                        <option value="Pessoal">Pessoal</option>
+                                    </select>
+                                  </div>
+                              </div>
+                              <div class="col-xs-6 col-sm-6 col-md-6">
+                                  <div class="form-group">
+                                    Montante Crédito: <input type="number" name="montante_credito" id="montante_credito" class="form-control input-sm" placeholder="Montante Credito">
+                                  </div>
+                                 
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  És empreendedor? <select class="form-control" name="empreendedor">
+                                    <option value="Sim">Sim</option>
+                                      <option value="Não">Não</option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                              <div class="form-group">
+                                Salario Mensal:<input type="number" name="salario_mensal" id="salario_mensal" class="form-control input-sm" placeholder="Salario Mensal">
+                              </div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                              Como quer pagar? :<input type="text" name="como_quer_pagar" id="como_quer_pagar" class="form-control input-sm" placeholder="Como quer pagar?">
+                          </div>
+                          <div class="form-group">
+                            Valor Mês Prestação:<input type="text" name="valor_mes_prestacao" id="valor_mes_prestacao" class="form-control input-sm" placeholder="Valor Mês Prestação">
+                        </div>
+                            <input type="submit" value="Solicitar" class="btn btn-info btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<style>
+#container1 {
+    background-color: #e2dada;
+}
+
+.centered-form {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.centered-form .panel {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+</style>
+<!-- Registration Form - END -->
+</div>
+</body>
+</html>
