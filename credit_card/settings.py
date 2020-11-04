@@ -27,7 +27,7 @@ SECRET_KEY = 'v-qlby5sd*tk9&uv#ne2u01l@vawa$l$z+ree==*mobdhxp*a9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','app-credit-cards.herokuapp.com']
+ALLOWED_HOSTS = ['app-credit-cards.herokuapp.com','127.0.0.1',]
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -143,7 +144,7 @@ EMAIL_HOST_USER ='vatadiame.developer@gmail.com'
 EMAIL_HOST_PASSWORD ='egrrsbmaiefibjqk'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL ='Sistema de Candidaturas Unitel (SCU) <noreply@codingwithmitch.com>'
+DEFAULT_FROM_EMAIL ='Sistema de Concessão de Crédtios (SCC) <noreply@codingwithmitch.com>'
 #The rest_framework
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
