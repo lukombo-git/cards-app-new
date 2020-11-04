@@ -1,1 +1,1 @@
-web: gunicorn Unitel.wsgi --log-file -
+web: gunicorn credit_card.wsgi --log-file -
