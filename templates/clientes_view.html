@@ -1,0 +1,32 @@
+{% extends "base_site.html" %}
+
+{% block content %}
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid" style="width:1200px;">
+       <!-- general form elements -->
+       <div class="card card-gray-dark">
+        <div class="card-header">
+          <h3 class="card-title"><i class="fa fa-edit"></i> Editar Cliente</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form" method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="card-body">
+                <div class="form-group">
+                    <fieldset>
+                    {{form.as_p}}
+                    </fieldset>
+                </div>
+            </div>
+          <div class="card-footer">
+        <button type="submit" class="btn btn-outline-primary"><i class="fa fa-save"></i> Salvar</button>
+        </div>
+        </form>
+      </div>
+      <!-- /.card -->
+    </div>
+  </section>
+{% endblock content %}
+

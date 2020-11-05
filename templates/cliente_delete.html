@@ -1,0 +1,31 @@
+{% extends "base_site.html" %}
+
+{% block content %}
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid"  style="width:1200px;">
+       <!-- general form elements -->
+       <div class="card card-gray-dark">
+        <div class="card-header">
+          <h3 class="card-title">Eliminar Cliente</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form" method="POST" action="">
+            <div class="card-body">
+                <div class="form-group">
+                    {% csrf_token %}
+                    <p>Tens a certeza que queres eliminar o "{{cliente}}"?</p>
+                </div>
+            </div>
+          <div class="card-footer">
+          <button type="submit" name="Confirmar" class="btn btn-outline-primary"><i class="fa fa-check"></i> Sim, tenho a certeza</button>
+          <a href="{% url 'list_clientes' %}" class="btn btn-outline-danger"><i class="fa fa-backspace"></i> Não, não tenho</a>
+        </div>
+        </form>
+      </div>
+      <!-- /.card -->
+    </div>
+  </section>
+{% endblock content %}
+
