@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout,update_session_auth_hash
 from django.shortcuts import render,redirect
 from django.contrib import messages
+from .processamento_dados import *
 from .models import Clientes
 from .forms import *
 
@@ -34,7 +35,7 @@ def UserLogin(request):
           user = authenticate(request,username=username,password=password)
           if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('list_clientes')
        else:
            messages.info(request,'Usuário ou senha errado!')
     return render(request, 'user_login.html')
@@ -110,7 +111,9 @@ def RegisterClientes(request):
 
 def ListClientes(request):
     clientes=Clientes.objects.all()
-    return render(request,'list_clientes.html',{'clientes':clientes})
+    proba = getDataset()
+    mylista = zip(clientes, proba)
+    return render(request,'list_clientes.html',{'my_lista':mylista})
 
 def ClientesView(request,pk):
     cliente = Clientes.objects.get(id_cliente=pk)
