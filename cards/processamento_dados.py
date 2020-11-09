@@ -11,7 +11,7 @@ import seaborn as sns
 sns.set()
 
 def getDataset():
-    url = 'http://127.0.0.1:8000/cards/cards_endpointclientes/'
+    url = 'https://app-credit-cards.herokuapp.com/cards/cards_endpointclientes/'
     r = requests.get(url)
     files = r.json()
     loan_data = pd.DataFrame(files)
