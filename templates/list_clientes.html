@@ -20,12 +20,11 @@
                   <th>Província</th>
                   <th>Tipo de Crédito</th>
                   <th>Salário Mensal</th>
-                  <th>% Prob. Risco</th>
                   <th>Ação</th>
                 </tr>
                 </thead>
                 <tbody>
-                  {% for c, proba in my_lista %}
+                  {% for c in clientes %}
                     <tr>
                     <td>{{c.nome_completo}}</td>
                     <td>{{c.sexo}}</td>
@@ -33,7 +32,6 @@
                     <td>{{c.provincia}}</td>
                     <td>{{c.tipo_credito}}</td>
                     <td>{{c.salario_mensal}}</td>
-                    <td>{{proba}}</td>
                     <td>
                       <a href="{% url 'cliente_view' c.id_cliente%}" class="btn btn-outline-secondary"><i class="fa fa-eye"></i> Visualizar</a>
                       <a href="{% url 'cliente_delete' c.id_cliente %}" class="btn btn-outline-danger"> <i class="fa fa-times-circle"></i>Eliminar</a>

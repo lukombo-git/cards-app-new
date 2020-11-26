@@ -81,16 +81,33 @@
                             <nav id="main-menu-navigation" class="navigation-main">
                                 <div class="nav-lavel">Navegação</div>
                                 <div class="nav-item active">
-                                    <a href="/tepmlates/index.html"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
+                                    <a href="{% url 'list_clientes' %}"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="/teplates/navbar.html"><i class="ik ik-menu"></i><span>Navigation</span> <span class="badge badge-success">Novo</span></a>
+                                    <a href="{% url 'list_clientes' %}"><i class="ik ik-menu"></i><span>Navigation</span> <span class="badge badge-danger">Novo</span></a>
                                 </div>
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Clientes</span> <span class="badge badge-danger">novos</span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Clientes</span> <span class="badge badge-success">novos</span></a>
                                     <div class="submenu-content">
-                                        <a href="/templates/widgets.html" class="menu-item">Listar Clientes</a>
-                                        <a href="/templates/widget-statistic.html" class="menu-item">Concessão de Créditos</a>
+                                        <a href="{% url 'list_clientes' %}" class="menu-item">Listar Clientes</a>
+                                    </div>
+                                </div>
+                                <div class="nav-item has-sub">
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>PD Model</span> <span class="badge badge-primary">novos</span></a>
+                                    <div class="submenu-content">
+                                        <a href="{% url 'sum_table' %}" class="menu-item">Tabela de Resumo</a>
+                                        <a href="{% url 'actual_df' %}" class="menu-item">Probabilidade Actual Prevista</a>
+                                        <a href="{% url 'score_card' %}" class="menu-item">Cartão de Pontuação</a>
+                                        <a href="{% url 'credit_score' %}" class="menu-item">Pontuação de Crédito</a>
+                                        <a href="{% url 'cut_off' %}" class="menu-item">Aprovação de Crédito</a>
+                                    </div>
+                                </div>
+                                <div class="nav-item has-sub">
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>LGD Model</span> <span class="badge badge-primary">novos</span></a>
+                                    <div class="submenu-content">
+                                        <a href="{% url 'lgdmodel_sum_table' %}" class="menu-item">Tabela de Resumo</a>
+                                        <a href="{% url 'lgdmodel_df_actual' %}" class="menu-item">Probabilidade Actual Prevista</a>
+                                        <a href="{% url 'lgdmodel_proba' %}" class="menu-item">Probabilidade</a>
                                     </div>
                                 </div>
                             </nav>
@@ -133,12 +150,6 @@
         <script src="/static/js/tables.js"></script>
         <script src="/static/js/widgets.js"></script>
         <script src="/static/js/charts.js"></script>
-        <script src="/static/dist/js/theme.min.js"></script>
-
-
-                
-        <script src="/static/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="/static/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
         <script src="/static/dist/js/theme.min.js"></script>
         <script src="/static/js/datatables.js"></script>
 

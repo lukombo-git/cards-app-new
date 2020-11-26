@@ -1,7 +1,10 @@
 from django.contrib.auth import authenticate, login, logout,update_session_auth_hash
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .processamento_dados import *
+from .pd_model import *
+from .lgd_model import *
+from .ead_model import *
+from .expected_lost import *
 from .models import Clientes
 from .forms import *
 
@@ -101,7 +104,13 @@ def RegisterClientes(request):
         empreendedor = request.POST.get('empreendedor'),
         montate_credito = request.POST.get('montante_credito'),
         como_quer_pagar = request.POST.get('como_quer_pagar'),
-        valor_mes_prestacao = request.POST.get('valor_mes_prestacao')
+        valor_mes_prestacao = request.POST.get('valor_mes_prestacao'),
+        taxa_de_recuperação = request.POST.get('taxa_de_recuperacao'),
+        estado_credito = request.POST.get('estado_credito'),
+        financiamento = request.POST.get('financiamento'),
+        valor_financiamento = request.POST.get('valor_financiamento'),
+        total_rec_prncp = request.POST.get('total_rec_prncp'),
+        recoveries = request.POST.get('recoveries')
         )
         #salvando o cliente
         cliente.save()
@@ -111,9 +120,57 @@ def RegisterClientes(request):
 
 def ListClientes(request):
     clientes=Clientes.objects.all()
-    proba = getDataset()
-    mylista = zip(clientes, proba)
-    return render(request,'list_clientes.html',{'my_lista':mylista})
+    return render(request,'list_clientes.html',{'clientes':clientes})
+
+#************PD MODEL FUNCTIONS ***********************************#
+def SumTable(request):
+    sum_table = summaryTable()
+    return render(request,'sum_table.html',{'sum_table':sum_table})
+
+def ActualPredictedProbs(request):
+    actual_df = actualPredictedProbs()
+    return render(request,'actual_df.html',{'actual_df':actual_df})
+
+def ScoreCard(request):
+    score_card = scoreCard()[0]
+    return render(request,'score_card.html',{'score_card':score_card})
+
+def CreditScore(request):
+    credit_score = creditScore()
+    return render(request,'credit_score.html',{'credit_score':credit_score})
+
+def CutOffs(request):
+    cut_off = cutOffs()
+    return render(request,'cut_off.html',{'cut_off':cut_off})
+
+#************ ENDING PD MODEL FUNCTIONS ***********************************#
+
+#************LGD MODEL FUNCTIONS ***********************************#
+def LgdSumTable(request):
+    lgd_sum_table = lgdSumTable2()
+    return render(request,'lgd_sum_table.html',{'lgd_sum_table':lgd_sum_table})
+
+def LgdActualPreditedProbs(request):
+    actual_df = lgdActualPreditedProbs()
+    return render(request,'lgd_df_probs.html',{'actual_df':actual_df})
+
+def ProbaFunction(request):
+    probafunction = probaFunction()[0]
+    return render(request,'proba_function.html',{'probafunction':probafunction})
+
+#************ ENDING PD MODEL FUNCTIONS ***********************************#
+
+def getLDGModel(request):
+    lgd_model,lgd_default,df_proba = getLgdModel()
+    return render(request,'lgd_model.html',{'lgd_model':lgd_model,'lgd_default':lgd_default,'df_proba':df_proba})
+
+def getEADModel(request):
+    sum_table,ead_df,y_hat = getEadModel()
+    return render(request,'ead_model.html',{'sum_table':sum_table,'ead_df':ead_df,'y_hat':y_hat})
+
+def getExpectedLostModel(request):
+    df_process = getExpectedLost()
+    return render(request,'expected_lost.html',{'df_process':df_process})
 
 def ClientesView(request,pk):
     cliente = Clientes.objects.get(id_cliente=pk)

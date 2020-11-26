@@ -97,8 +97,41 @@
                           </div>
                           <div class="form-group">
                             Valor Mês Prestação:<input type="text" name="valor_mes_prestacao" id="valor_mes_prestacao" class="form-control input-sm" placeholder="Valor Mês Prestação">
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  Estado Crédito: <select class="form-control" name="estado_credito">
+                                    <option value="pago">Pago</option>
+                                      <option value="nao pago">Não Pago</option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  Taxa de Recuperação: <input type="number" name="taxa_de_recuperacao" id="taxa_de_recuperacao" class="form-control input-sm" placeholder="Taxa de">
+                                </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            Financiamento:<input type="text" name="financiamento" id="valor_mes_prestacao" class="form-control input-sm" placeholder="Financiamento">
                         </div>
-                            <input type="submit" value="Solicitar" class="btn btn-info btn-block">
+                        <div class="row">
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                              Valor Financiamento: <input type="number" name="valor_financiamento" id="valor_financiamento" class="form-control input-sm" placeholder="Valor Financiamento">
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                              Recuperação: <input type="number" name="recoveries" id="recoveries" class="form-control input-sm" placeholder="Recuperação">
+                            </div>
+                        </div>  
+                        </div>
+                        <div class="form-group">
+                            Total Recuperado: <input type="number" name="total_rec_prncp" id="total_rec_prncp" class="form-control input-sm" placeholder="Total Recuperado">
+                        </div>
+                        <input type="submit" value="Solicitar" class="btn btn-info btn-block">
                         </form>
                     </div>
                 </div>

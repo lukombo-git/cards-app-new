@@ -41,6 +41,12 @@ class Clientes(models.Model):
     montate_credito = models.CharField(max_length=100)
     como_quer_pagar = models.CharField(choices=COMO_QUER_PAGAR,default="Por Prestações",max_length=100)
     valor_mes_prestacao = models.CharField(max_length=100)
+    taxa_de_recuperação = models.CharField(max_length=100)
+    estado_credito = models.CharField(max_length=100)
+    financiamento = models.IntegerField()
+    valor_financiamento = models.IntegerField()
+    total_rec_prncp = models.IntegerField()
+    recoveries = models.IntegerField()
   
     def publish(self):
         self.data_cadastramento=timezone.now()
